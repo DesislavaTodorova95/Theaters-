@@ -1,7 +1,18 @@
-<form action="/auth/login" method="POST">
-  <input type="text" name="username" />
-  <input type="text" name="password" />
 
-  <input type="submit" value="Login" />
+        <main>
+            <form action="/auth/login" method="POST">
+                <h2>Login</h2>
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" placeholder="Username" value="{{userData.username}}">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" placeholder="Password" value="">
+                </div>
 
-</form>
+                <button class="btn" type="submit">Login</button>
+            </form>
+        </main>
+
+       

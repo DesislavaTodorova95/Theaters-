@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  likedPlays: [{type: mongoose.Schema.Types.ObjectId, ref: 'Play'}]
 });
 
 module.exports = mongoose.model("User", UserSchema);
