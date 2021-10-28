@@ -4,7 +4,7 @@ function isUser() {
       next();
     } else {
      ('red is user')
-      res.redirect('auth/login');
+      res.redirect('/auth/login');
     }
   };
 }
