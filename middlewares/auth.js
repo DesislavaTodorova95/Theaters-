@@ -40,14 +40,14 @@ async function register(username, password) {
 async function login(username, password) {
   const user = await userService.getUserByUsername(username);
   if (!user) {
-    const err=  new Error("No such user");
-    err.type='credential';
-    throw err
+    const err = new Error("No such user");
+    err.type = "credential";
+    throw err;
   }
   const hasMatch = await bcrypt.compare(password, user.hashedPassword);
   if (!hasMatch) {
-   let err= new Error("Incorrect Password");
-    err.type='credential';
+    let err = new Error("Incorrect Password");
+    err.type = "credential";
     throw err;
   }
 
@@ -69,11 +69,14 @@ function parseToken(req, res) {
   if (token) {
     try {
       const userData = jwt.verify(token, JWT_SECRET);
+
       req.user = userData;
+      res.locals.user = userData; // !!! i can acces user from templates without passing it
     } catch (err) {
       res.clearCookie(COOKIE_NAME);
+      console.log(err);
       res.redirect("/auth/login");
-      
+
       return false;
     }
   }

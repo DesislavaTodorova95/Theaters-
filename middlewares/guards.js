@@ -3,8 +3,8 @@ function isUser() {
     if (req.user) {
       next();
     } else {
-     ('red is user')
-      res.redirect('/auth/login');
+      ("red is user");
+      res.redirect("/auth/login");
     }
   };
 }
@@ -13,8 +13,8 @@ function isGuest() {
     if (!req.user) {
       next();
     } else {
-        ('red isGuest')
-      res.redirect('/');
+      ("red isGuest");
+      res.redirect("/");
     }
   };
 }

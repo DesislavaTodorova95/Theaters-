@@ -19,9 +19,9 @@
 [x] Update config to match project requirements (DB name(in config folder)) 
 [x] Addapt User model and user service, auth middleware to project requirements
 [x] Implment register, login page actions, register, login, logout actions  // apply paths in main layout
-[] Create models for project-specific data
-[] Create data services and middleware for project-specific data.
-[] Create page actions for project-specific functionality 
+[x] Create models for project-specific data
+[x] Create data services and middleware for project-specific data.
+[x] Create page actions for project-specific functionality 
 
 
 

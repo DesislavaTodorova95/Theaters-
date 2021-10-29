@@ -1,12 +1,17 @@
-const mongoose= require('mongoose');
+const mongoose = require("mongoose");
 const PlaySchema = new mongoose.Schema({
-
-title:{ type: String, required: true},
-description:{ type: String, required: true, maxlength:50},
-imageUrl:{ type: String, required: true},
-public:{type: Boolean,  default: false},
-createdAt:{type: Date, default: Date.now},
-usersLiked:[{type: mongoose.Schema.Types.ObjectId, ref: 'User', default: []}],
-author: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
-})
-module.exports = mongoose.model('Play', PlaySchema)
+  title: { type: String, required: [true, "Title is required"] },
+  description: {
+    type: String,
+    required: [true, "Description is required"],
+    maxlength: [50, "Description must be les than 50 characters long"],
+  },
+  imageUrl: { type: String, required: [true, "Photo is required"] },
+  public: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now },
+  usersLiked: [
+    { type: mongoose.Schema.Types.ObjectId, ref: "User", default: [] },
+  ],
+  author: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+});
+module.exports = mongoose.model("Play", PlaySchema);
